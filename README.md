@@ -150,8 +150,4 @@ terraform plan
 terraform apply
 ```
  -->
-# vMailer
-# vMailer
-# vMailer
-# vMailer
-# vMailer
+
