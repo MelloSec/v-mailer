@@ -1,0 +1,16 @@
+{
+    "BUCKET": "your_bucket_name",
+    "BUCKETKEY": "your_bucket_key",
+    "BUCKETREGION": "your_bucket_region",
+    "BUCKETENDPOINT": "your_bucket_endpoint",
+    "VMNAME": "your_vm_name",
+    "AZREGION": "your_azure_region",
+    "VAULTNAME": "your_vault_name",
+    "VAULTGROUP": "your_vault_group",
+    "SCRIPTURL": "your_script_url",
+    "DOMAINNAME": "your_domain_name",
+    "DOMAINSUFFIX": "your_domain_suffix",
+    "approve": false,
+    "rdp": false,
+    "s3enabled": true
+}

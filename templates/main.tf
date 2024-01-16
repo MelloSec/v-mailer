@@ -179,4 +179,4 @@ resource "azurerm_windows_virtual_machine" "<<<VMNAME>>>" {
 #   settings = jsonencode({
 #     "scriptFile" = var.script_url
 #   })
-}
+#}

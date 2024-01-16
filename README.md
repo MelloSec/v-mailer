@@ -87,67 +87,9 @@ terraform {
 }
 ```
 
-<!-- ### Deploy Manually with CLi using Secure Strings
-```powershell
-# Prompt for AWS Access Key ID and Secret Access Key
-$AWS_ACCESS_KEY_ID = Read-Host "Enter DigitalOcean S3 Key ID" -AsSecureString
+#### TODO
 
-$AWS_SECRET_ACCESS_KEY = Read-Host "Enter DigitalOcean S3 Secret Access Key" -AsSecureString
-
-# Convert SecureString to Plain Text (for temporary use)
-$BSTR = [System.Runtime.InteropServices.Marshal]::SecureStringToBSTR($AWS_ACCESS_KEY_ID)
-$PlainAWS_ACCESS_KEY_ID = [System.Runtime.InteropServices.Marshal]::PtrToStringAuto($BSTR)
-
-$BSTR = [System.Runtime.InteropServices.Marshal]::SecureStringToBSTR($AWS_SECRET_ACCESS_KEY)
-$PlainAWS_SECRET_ACCESS_KEY = [System.Runtime.InteropServices.Marshal]::PtrToStringAuto($BSTR)
-
-# Configure AWS CLI
-aws configure set aws_access_key_id $PlainAWS_ACCESS_KEY_ID --profile digitalocean
-aws configure set aws_secret_access_key $PlainAWS_SECRET_ACCESS_KEY --profile digitalocean
-aws configure set default.region us-east-1 --profile digitalocean
-
-$env:AWS_PROFILE="digitalocean"
-# export AWS_PROFILE=digitalocean
-
-# Initialize and copy tf to backend, will prompt for VM password and username
-terraform init -force-copy
-terraform plan
-
-
-# Clear Plain Text Variables from Memory
-$choice = Read-Host "Enter 'Y' to clear plaintext creds from memory"
-if($choice = 'Y'){
-Remove-Variable -Name PlainAWS_ACCESS_KEY_ID, PlainAWS_SECRET_ACCESS_KEY
-[System.Runtime.InteropServices.Marshal]::ZeroFreeBSTR($BSTR)
-}
-```
-
-## Deploy the Dev way
-
-```powershell
-$AWS_ACCESS_KEY_ID = ""
-$AWS_SECRET_ACCESS_KEY = ""
-
-aws configure set aws_access_key_id $AWS_ACCESS_KEY_ID --profile digitalocean
-aws configure set aws_secret_access_key $AWS_SECRET_ACCESS_KEY --profile digitalocean
-aws configure set default.region us-east-1 --profile digitalocean
-# If needed, you can also set the output format
-# aws configure set default.output json --profile digitalocean
-
-# Set AWS_PROFILE environment variable
-$env:AWS_PROFILE="digitalocean"
-# export AWS_PROFILE=digitalocean
-
-terraform init -force-copy
-terraform plan
-```
-
-## Deploy the local way, no S3 (might work still?):
-```powershell
-mv backend.tf backend.nah
-terraform init
-terraform plan
-terraform apply
-```
- -->
-
+- Fix/look at DNS from issue this week
+- Change auto-rdp from DNS name to IP
+- Make the VM size a var / template so we can change it each time
+- Background install cloud.ps1

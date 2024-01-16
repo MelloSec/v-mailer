@@ -152,7 +152,7 @@ $rg = "$VMNAME"+"-resources"
 Write-Output "Invoking 'Invoke-WebRequest -Uri https://raw.githubusercontent.com/MelloSec/RepeatOffender/main/Choco.ps1 -OutFile Choco.ps1; .\Choco.ps1'"
 az vm run-command invoke --command-id RunPowerShellScript --name $vm --resource-group $rg --scripts "Invoke-WebRequest -Uri https://raw.githubusercontent.com/MelloSec/RepeatOffender/main/Choco.ps1 -OutFile Choco.ps1; .\Choco.ps1"
 
-Write-Output "Invoking 'Copy-Item 'C:\ProgramData\chocolatey\choco.exe' 'C:\Windows\System32' -Force"
+Write-Output "Invoking 'Copy-Item "C:\ProgramData\chocolatey\choco.exe" "C:\Windows\System32"' -Force"
 az vm run-command invoke --command-id RunPowerShellScript --name $vm --resource-group $rg --scripts "'C:\ProgramData\chocolatey\choco.exe' 'C:\Windows\System32' -Force"
 
 Write-Output "Invoking 'Invoke-WebRequest -Uri https://raw.githubusercontent.com/MelloSec/RepeatOffender/main/CloudBig.ps1 -OutFile CloudBig.ps1; .\CloudBig.ps1'"
