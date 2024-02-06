@@ -155,9 +155,13 @@ az vm run-command invoke --command-id RunPowerShellScript --name $vm --resource-
 Write-Output "Invoking 'Copy-Item "C:\ProgramData\chocolatey\choco.exe" "C:\Windows\System32"' -Force"
 az vm run-command invoke --command-id RunPowerShellScript --name $vm --resource-group $rg --scripts "'C:\ProgramData\chocolatey\choco.exe' 'C:\Windows\System32' -Force"
 
-Write-Output "Invoking 'Invoke-WebRequest -Uri https://raw.githubusercontent.com/MelloSec/RepeatOffender/main/CloudBig.ps1 -OutFile CloudBig.ps1; .\CloudBig.ps1'"
-az vm run-command invoke --command-id RunPowerShellScript  --name $vm --resource-group $rg --scripts "Invoke-WebRequest -Uri https://raw.githubusercontent.com/MelloSec/RepeatOffender/main/CloudBig.ps1 -OutFile CloudBig.ps1; .\CloudBig.ps1"
+Write-Output "Invoking 'Invoke-WebRequest -Uri https://raw.githubusercontent.com/MelloSec/RepeatOffender/main/Azure.ps1 -OutFile Azure.ps1; .\Azure.ps1'"
+az vm run-command invoke --command-id RunPowerShellScript  --name $vm --resource-group $rg --scripts "Invoke-WebRequest -Uri https://raw.githubusercontent.com/MelloSec/RepeatOffender/main/Azure.ps1 -OutFile Azure.ps1; .\Azure.ps1"
 }
+
+# Write-Output "Invoking 'Invoke-WebRequest -Uri https://raw.githubusercontent.com/MelloSec/RepeatOffender/main/CloudBig.ps1 -OutFile CloudBig.ps1; .\CloudBig.ps1'"
+# az vm run-command invoke --command-id RunPowerShellScript  --name $vm --resource-group $rg --scripts "Invoke-WebRequest -Uri https://raw.githubusercontent.com/MelloSec/RepeatOffender/main/CloudBig.ps1 -OutFile CloudBig.ps1; .\CloudBig.ps1"
+# }
 else {
     terraform init -reconfigure
     terraform plan
